@@ -1,6 +1,6 @@
 import { FunctionalComponent } from "preact/src/index.d.ts";
 
-export const Header: FunctionalComponent = () => {
+export const Form: FunctionalComponent = () => {
     return(
         <div class="formBuscarTelefono">
             <form action="/" method="get">
