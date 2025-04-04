@@ -1,5 +1,6 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import { apiCountry } from "../../apis.ts";
+import { ValidCountry } from "../../components/validCountry.tsx";
 import { apiCountryData } from "../../types.ts";
 
 export const handler: Handlers = {
@@ -21,15 +22,7 @@ export const handler: Handlers = {
 export default function Home(props: PageProps<apiCountryData>) {
     return (
         <div class="containerCountry">
-            {props.data !== undefined ? (
-                <>
-                    <p><strong>País: </strong>{props.data.name}</p>
-                    <p>
-                        <strong>Capital: </strong>
-                        <a href={`/city/${props.data.capital}`}>{props.data.capital}</a>
-                    </p>
-                </>
-            ): null}
+            <ValidCountry data={props.data}/>
         </div>
     );
 }

@@ -8,7 +8,7 @@ import * as $_layout from "./routes/_layout.tsx";
 import * as $city_city_ from "./routes/city/[city].tsx";
 import * as $country_country_ from "./routes/country/[country].tsx";
 import * as $index from "./routes/index.tsx";
-import * as $Counter from "./islands/Counter.tsx";
+
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -20,9 +20,7 @@ const manifest = {
     "./routes/country/[country].tsx": $country_country_,
     "./routes/index.tsx": $index,
   },
-  islands: {
-    "./islands/Counter.tsx": $Counter,
-  },
+  islands: {},
   baseUrl: import.meta.url,
 } satisfies Manifest;
 

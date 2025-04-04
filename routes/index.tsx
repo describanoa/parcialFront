@@ -1,7 +1,7 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
-import { Form } from "../components/form.tsx";
 import { apiPhone } from "../apis.ts";
 import { apiPhoneData } from "../types.ts";
+import { ValidPhone } from "../components/validPhone.tsx";
 
 export const handler: Handlers = {
   GET: async(req: Request, ctx: FreshContext<unknown, apiPhoneData>) => {
@@ -32,22 +32,7 @@ export const handler: Handlers = {
 export default function Home(props: PageProps<apiPhoneData>) {
   return (
     <div class="container">
-      <Form />
-      {
-        props.data !== undefined && (
-          props.data.is_valid ? (
-            <>
-              <p>El teléfono es válido</p>
-              <p>
-                País: <a href={`/country/${props.data.country}`}>{props.data.country}</a>
-              </p>
-            </>
-          ): !props.data.is_valid ? (
-            <p>El teléfono no es válido</p>
-          ) : null
-        )
-        
-      }
+      <ValidPhone data={props.data}/>
     </div>
   );
 }

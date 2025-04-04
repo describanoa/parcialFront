@@ -1,5 +1,6 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import { apiCapital } from "../../apis.ts";
+import { ValidCapital } from "../../components/validCapital.tsx";
 import { apiCapitalData } from "../../types.ts";
 
 export const handler: Handlers = {
@@ -21,16 +22,7 @@ export const handler: Handlers = {
 export default function Home(props: PageProps<apiCapitalData>) {
     return (
         <div class="containerCapital">
-            {props.data !== undefined ? (
-                <>
-                    <p><strong>Capital: </strong>{props.data.capital}</p>
-                    <p>
-                        <strong>País: </strong>
-                        <a href={`/country/${props.data.name}`}>{props.data.name}</a>
-                    </p>
-                    <p><strong>Temperatura: </strong>{props.data.temp}</p>
-                </>
-            ): null}
+            <ValidCapital data={props.data} />
         </div>
     );
 }
