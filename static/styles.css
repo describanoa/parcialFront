@@ -61,6 +61,7 @@ body, html {
 
 .container{
   flex-grow: 1;
+  margin-top: 0.2cm;
   width: 99%;
   border-radius: 15px;
   background-color: gray;
@@ -68,6 +69,8 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
+button{
+  
+}
